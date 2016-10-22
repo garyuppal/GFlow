@@ -25,8 +25,8 @@ int main(int argc, char** argv) {
   double diffW = 1;
   double lamR = 0;
   double lamW = 0;
-  double secRateR = 1; // also called 'eat rate'
-  double secRateW = 1;
+  double secR = 1; // also called 'eat rate'
+  double secW = 1;
 
 
   // Display parameters
@@ -144,6 +144,10 @@ int main(int argc, char** argv) {
   simulation.setWasteSaturation(csatW);
   simulation.setResourceDecayRate(lamR);
   simulation.setWasteDecayRate(lamW);
+  simulation.setResouceDiffusion(diffR);
+  simulation.setWasteDiffusion(diffW);
+  simulation.setEatRate(secR);
+  simulatoin.setSecretionRate(secW);
   // -----------------
   simulation.setRecFields(recFields);
   simulation.bacteriaRun(time);

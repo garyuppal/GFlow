@@ -111,6 +111,8 @@ class Simulator {
   void setWasteSaturation(double kw) { csatW = kw; }
   void setResourceDecayRate(double lr) { lamR = lr; }
   void setWasteDecayRate(double lw) { lamW = lw; }
+  void setResourceDiffusion(double dr) { resourceDiffusion = dr; }
+  void setWasteDiffusion(double dw) { wasteDiffusion = dw; }
   /// Global set functions
   void setParticleDissipation(double);
   void setWallDissipation(double);
