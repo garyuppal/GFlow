@@ -144,10 +144,10 @@ int main(int argc, char** argv) {
   simulation.setWasteSaturation(csatW);
   simulation.setResourceDecayRate(lamR);
   simulation.setWasteDecayRate(lamW);
-  simulation.setResouceDiffusion(diffR);
+  simulation.setResourceDiffusion(diffR);
   simulation.setWasteDiffusion(diffW);
   simulation.setEatRate(secR);
-  simulatoin.setSecretionRate(secW);
+  simulation.setSecretionRate(secW);
   // -----------------
   simulation.setRecFields(recFields);
   simulation.bacteriaRun(time);
