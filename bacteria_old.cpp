@@ -15,18 +15,18 @@ int main(int argc, char** argv) {
 
   // My Parameters
     // fitness
-  double alphaR = 1;
-  double alphaW = 1;
-  double betaR = 1;
-  double csatR = 1;
-  double csatW = 1;
+  double alpha1 = 1;
+  double alpha2 = 1;
+  double beta1 = 1;
+  double csat1 = 1;
+  double csat2 = 1;
     // chemical parameters
-  double diffR = 1;
-  double diffW = 1;
-  double lamR = 0;
-  double lamW = 0;
-  double secR = 1; // also called 'eat rate'
-  double secW = 1;
+  double diff1 = 1;
+  double diff2 = 1;
+  double lam1 = 0;
+  double lam2 = 0;
+  double secRate1 = 1;
+  double secRate2 = 1;
 
 
   // Display parameters
@@ -136,19 +136,6 @@ int main(int argc, char** argv) {
   simulation.createBacteriaBox(number, radius, width, height, velocity);
   simulation.setReplenish(replenish);
   simulation.setTemperature(temperature);
-  // added parameters:
-  simulation.setBenefit(alphaR);
-  simulation.setHarm(alphaW);
-  simulation.setSecretionCost(betaR);
-  simulation.setResourceSaturation(csatR);
-  simulation.setWasteSaturation(csatW);
-  simulation.setResourceDecayRate(lamR);
-  simulation.setWasteDecayRate(lamW);
-  simulation.setResouceDiffusion(diffR);
-  simulation.setWasteDiffusion(diffW);
-  simulation.setEatRate(secR);
-  simulatoin.setSecretionRate(secW);
-  // -----------------
   simulation.setRecFields(recFields);
   simulation.bacteriaRun(time);
   auto end_t = clock();
