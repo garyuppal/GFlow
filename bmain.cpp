@@ -5,13 +5,29 @@ int main(int argc, char** argv) {
   // Parameters
   double width = 2.;
   double height = 1.;
-  double radius = 0.02;
+  double radius = 0.02;    // bacteria radius
   double velocity = 0.;
-  double temperature = 8.;
+  double temperature = 8.; // bacteria diffusion
   double phi = 0.001;
   double replenish = 0.;
   double time = 600.;
   double start = 0;
+
+  // My Parameters
+    // fitness
+  double alphaR = 1;
+  double alphaW = 1;
+  double betaR = 1;
+  double csatR = 1;
+  double csatW = 1;
+    // chemical parameters
+  double diffR = 1;
+  double diffW = 1;
+  double lamR = 0;
+  double lamW = 0;
+  double secRateR = 1; // also called 'eat rate'
+  double secRateW = 1;
+
 
   // Display parameters
   bool animate = true;
@@ -120,6 +136,15 @@ int main(int argc, char** argv) {
   simulation.createBacteriaBox(number, radius, width, height, velocity);
   simulation.setReplenish(replenish);
   simulation.setTemperature(temperature);
+  // added parameters:
+  simulation.setBenefit(alphaR);
+  simulation.setHarm(alphaW);
+  simulation.setSecretionCost(betaR);
+  simulation.setResourceSaturation(csatR);
+  simulation.setWasteSaturation(csatW);
+  simulation.setResourceDecayRate(lamR);
+  simulation.setWasteDecayRate(lamW);
+  // -----------------
   simulation.setRecFields(recFields);
   simulation.bacteriaRun(time);
   auto end_t = clock();

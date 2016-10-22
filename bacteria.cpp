@@ -5,13 +5,29 @@ int main(int argc, char** argv) {
   // Parameters
   double width = 2.;
   double height = 1.;
-  double radius = 0.02;
+  double radius = 0.02;    // bacteria radius
   double velocity = 0.;
-  double temperature = 8.;
+  double temperature = 8.; // bacteria diffusion
   double phi = 0.001;
   double replenish = 0.;
   double time = 600.;
   double start = 0;
+
+  // My Parameters
+    // fitness
+  double alpha1 = 1;
+  double alpha2 = 1;
+  double beta1 = 1;
+  double csat1 = 1;
+  double csat2 = 1;
+    // chemical parameters
+  double diff1 = 1;
+  double diff2 = 1;
+  double lam1 = 0;
+  double lam2 = 0;
+  double secRate1 = 1;
+  double secRate2 = 1;
+
 
   // Display parameters
   bool animate = true;

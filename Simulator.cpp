@@ -799,10 +799,17 @@ inline void Simulator::bacteriaUpdate() {
 	// Update waste and resource fields
 	double &res = resource.at(x-1,y-1), &wst = waste.at(x-1,y-1);
 	wst += epsilon*secretionRate*number;
-	res -= epsilon*eatRate*res*number;
+	res += epsilon*eatRate*res*number;  // eatRate = resource secretion rate
 	res = res<0 ? 0 : res;
 	// Calculate fitness
-	double fitness = res/(res+1)-wst/(wst+1);
+	//temporary values:
+	double alpha1 = 1;
+	double alpha2 = 1;
+	double beta1 = 1;
+	double csat1 = 1;
+	double csat2 = 1;
+	//
+	double fitness = alpha1*res/(res+csat1)-alpha2*wst/(wst+csat2)-beta1*secretionRate;
 	// Die if neccessary
 	if (fitness<0) {
 	  for (auto p=sect.begin(); p!=sect.end(); ++p) {

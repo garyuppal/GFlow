@@ -103,6 +103,14 @@ class Simulator {
   void setSamplePoints(int p) { samplePoints = p; }
   void setFlowFunc(std::function<vect<>(vect<>)> f) { flowFunc = f; }
   void discard();
+  //// More Mutators for bacteria
+  void setBenefit(double a) { alphaR = a; }
+  void setHarm(double a) { alphaW = a; }
+  void setSecretionCost(double b) { betaR = b;}
+  void setResourceSaturation(double kr) { csatR = kr;}
+  void setWasteSaturation(double kw) { csatW = kw; }
+  void setResourceDecayRate(double lr) { lamR = lr; }
+  void setWasteDecayRate(double lw) { lamW = lw; }
   /// Global set functions
   void setParticleDissipation(double);
   void setWallDissipation(double);
@@ -188,6 +196,12 @@ class Simulator {
   Field resource, waste, buffer;
   bool recFields; // Whether we should record field data or not
   string resourceStr, wasteStr, fitnessStr;
+  //// more bacteria data:
+  double alphaR, alphaW, betaR; // for fitness
+  double csatR, csatW;  // for saturation
+  double lamR, lamW; // decay constants
+
+
 
   /// Times etc.
   double time;
